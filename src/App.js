@@ -2,10 +2,10 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
-import { createBrowserRouter } from "react-router-dom";
-import { RouterProvider } from "react-router-dom";
+import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import About from "./components/About";
 import Error from "./components/Error";
+import Contact from "./components/Contact";
 
 //see console warning
 
@@ -17,7 +17,7 @@ const AppLayout = () => (
     }}
   >
     <Header />
-    <Body />
+    <Outlet />
   </div>
 );
 
@@ -25,12 +25,22 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <AppLayout />,
-    errorElement: <Error />
+    children: [
+      {
+        path:"/",
+        element: <Body/>
+      },
+      {
+        path: "/about",
+        element: <About />,
+      },
+      {
+        path: "/contact",
+        element: <Contact />,
+      },
+    ],
+    errorElement: <Error />,
   },
-  {
-    path: "/about",
-    element: <About />
-  }
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
