@@ -7,7 +7,7 @@ import Body from "./components/Body";
 
 
 const AppLayout = () => (
-  <div className="app">
+  <div className="app" onScroll={()=>{console.log("scrolling")}}>
     <Header />
     <Body />
   </div>
