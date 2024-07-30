@@ -63,21 +63,31 @@
     margin: 5px;
     width: 200px;
     height: 450px;
-    border: 1px solid white;
-    border-radius: 5px;
+    /* border: 1px solid white; */
+    /* border-radius: 5px; */
+    color: black;
+    transition: transform 0.3s;
+}
+a {
+    text-decoration: none;
+    color: black;
 }
 
 .res-card:hover{
-    border: 1px solid black;
+    /* border: 1px solid black; */
+    transform: scale(1.05);
 }
 
 .res-img{
-    background-color: white;
+    background-color: lightgray;
+    margin: none;
+    /* height: 100px; */
 }
 
 .res-img > img {
     width: 100%;
     z-index: -2;
+    border-radius: 50px;
 }
 
 .shimmer-container{
@@ -96,4 +106,13 @@
 .filter{
     margin-top: 10px;
     display: flex;
+}
+
+.user-card {
+    display: inline-block;
+    /* width: 500px; */
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 50px;
+    margin: 20px;
 }
