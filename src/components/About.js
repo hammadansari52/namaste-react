@@ -5,33 +5,21 @@ import React from "react";
 class About extends React.Component{
     constructor(props){
         super(props);
-        console.log("Parent constructor");
+        // console.log("Parent constructor");
     }
 
     componentDidMount(){
-        console.log("Parent componentDidMount");
+        // console.log("Parent componentDidMount");
     }
 
     render(){
-        console.log("Parent render");
+        // console.log("Parent render");
         return (
             <div>
                 <h1>About Us Page</h1>
-                <UserClass name={"First"} />
-                <UserClass name={"Second"} />
-                <UserClass name={"Third"} />
+                <UserClass name={"Hammad Ansari"} />
             </div>
         )
     }
 }
-
-// const About = ()=>{
-//     return (
-//         <div>
-//             <h1>About Us Page</h1>
-//             <UserClass name={"Hammad Ansari (Using Props)"} />
-//         </div>
-//     )
-// }
-
 export default About;
