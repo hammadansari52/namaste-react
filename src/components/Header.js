@@ -11,19 +11,19 @@ const Header = () => {
   const [btnName, setBtnName] = useState(btnNameArr[idx]);
   const onlinestatus = useOnlineStatus();
   return (
-    <div className="footer">
-      <div className="logo-container">
-        <img className="logo" src={LOGO_URL} alt="Company Logo" />
+    <div className="flex justify-between items-center border-b border-solid border-gray-300 shadow-md">
+      <div className="px-4">
+        <Link to={"/"}><img className="w-32" src={LOGO_URL} alt="Company Logo" /></Link>
       </div>
-      <div className="nav-items">
-        <ul>
-          <li className="online-status">Online Status: {onlinestatus === true ? "🟢" : "🔴"}</li>
-          <li><Link to={"/"}>Home</Link></li>
-          <li><Link to={"/about"}>About</Link></li>
-          <li><Link to={"/contact"}>Contact Us</Link></li>
-          <li><Link to={"/grocery"}>Grocery</Link></li>
-          <li>Cart</li>
-          <li>
+      <div className="flex">
+        <ul className="flex">
+          <li className="px-4">Online Status: {onlinestatus === true ? "🟢" : "🔴"}</li>
+          <li className="px-4"><Link to={"/"}>Home</Link></li>
+          <li className="px-4"><Link to={"/about"}>About</Link></li>
+          <li className="px-4"><Link to={"/contact"}>Contact Us</Link></li>
+          <li className="px-4"><Link to={"/grocery"}>Grocery</Link></li>
+          <li className="px-4">Cart</li>
+          <li className="px-4">
             <button
               className="login-btn"
               onClick={() => {

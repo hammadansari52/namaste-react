@@ -30,12 +30,12 @@ class UserClass extends React.Component {
   render() {
     // console.log(this.props.name + " Child render");
     return (
-      <div className="user-card">
-        <img src={this.state.userInfo.avatar_url} className="user-img"></img>
-        <h1>{this.state.userInfo.name}</h1>
+      <div className="m-6 inline-block border border-black rounded-sm p-8">
+        <img src={this.state.userInfo.avatar_url} className="rounded-full w-56 m-4" ></img>
+        <h1 className="font-bold">{this.state.userInfo.name}</h1>
         <h2>IIT Kanpur</h2>
         <h3>{this.state.userInfo.location}</h3>
-        <h4>IG: __hammad__ansari</h4>
+        <h4><span className="font-bold">IG</span>: __hammad__ansari</h4>
       </div>
     );
   }
