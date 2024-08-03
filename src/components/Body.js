@@ -1,4 +1,4 @@
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard, { withTopLabel } from "./RestaurantCard";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
@@ -24,9 +24,7 @@ const Body = () => {
       "https://www.swiggy.com/dapi/restaurants/list/v5?lat=26.8466937&lng=80.94616599999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
     );
     const json = await data.json();
-    resListbackup =
-      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
-        ?.restaurants;
+    // console.log(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
     setResList(
       json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
@@ -39,10 +37,12 @@ const Body = () => {
 
   if (onlineStatus === false) return <Offline />;
 
+  const TopRestaurantCard = withTopLabel(RestaurantCard);
+
   return resList.length === 0 ? (
     <Shimmer />
   ) : (
-    <div className=" w-[900px] mx-auto">
+    <div className=" max-w-screen-lg mx-auto">
       <div className="flex my-6">
         <div className="">
           <input
@@ -83,8 +83,16 @@ const Body = () => {
       </div>
       <div className="flex flex-wrap">
         {filteredRes.map((res) => (
-          <Link key={res.info.id} to={/restaurants/ + res.info.id}>
-            <RestaurantCard resData={res} />
+          <Link
+            key={res.info.id}
+            to={/restaurants/ + res.info.id}
+            className="w-1/4"
+          >
+            {res?.info?.avgRating >= 4.4 ? (
+              <TopRestaurantCard resData={res} />
+            ) : (
+              <RestaurantCard resData={res} />
+            )}
           </Link>
         ))}
       </div>
