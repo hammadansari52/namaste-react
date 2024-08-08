@@ -1,8 +1,19 @@
+import { useState } from "react";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import Offline from "./Offline";
 const Contact = () => {
   const onlineStatus = useOnlineStatus();
-  return onlineStatus === false ? <Offline /> : <h1>Contact Us Page</h1>;
+  const [count, setCount] = useState(0);
+  return (<div>
+    <h1>{count}</h1>
+    <button onClick={()=>{
+      setCount(count+1);
+    }}>Increase</button>
+    <button onClick={()=>{
+      setCount(count-1);
+    }}>Decrease</button>
+  </div>)
+
 };
 
 export default Contact;
